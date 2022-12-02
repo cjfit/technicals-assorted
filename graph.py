@@ -36,6 +36,27 @@ pairs = [
     (5, 7), (4, 5), (4, 9), (9, 12), (30, 16)
 ]
 
+# BFS Solution
+def bfs_solution():
+    adj_list = {}
+    for src, dst in pairs:
+        if src not in adj_list:
+            adj_list[src] = []
+        if dst not in adj_list:
+            adj_list[dst] = []
+        adj_list[src].append(dst)
+
+    print(adj_list)
+    freqs = {}
+    for obj in adj_list:
+        for item in adj_list[obj]:
+            freqs[item] = freqs.get(item, 0) + 1
+
+    print(freqs)
+
+    # one parent:
+
+
 # Brute Force - Non-Graph Solution
 def set_and_counts(pairs):
     """
@@ -71,4 +92,5 @@ def set_and_counts(pairs):
 if __name__ == "__main__":
 
     # brute force solution
-    set_and_counts(pairs)
+    #set_and_counts(pairs)
+    bfs_solution()
